@@ -38,6 +38,13 @@ function countEvenNumbersWithin(destination) {
     let sum = 0;
     let count = 0;
     let arrayOfEvenNumbers = [];
+    for (let i = 1; i <= destination; i++) {
+        if (i % 2 === 0) { // Check if the number is even
+            sum += i; // Add even number to the sum
+            count++;  // Increment the count
+            arrayOfEvenNumbers.push(i); // Add even number to the array
+        }
+    }
 
     return {
         // property value shorthand
@@ -49,7 +56,12 @@ function countEvenNumbersWithin(destination) {
     };
 }
 
-// assignment.countEvenNumbersWithin = countEvenNumbersWithin;
+// Test the function
+let destination = 10;
+let result = countEvenNumbersWithin(destination);
+console.log(result);
+
+assignment.countEvenNumbersWithin = countEvenNumbersWithin;
 
 /**
  * Challenge - 3
@@ -68,11 +80,24 @@ function countEvenNumbersWithin(destination) {
  */
 function celsiusToFahrenheit(arrayOfNumbers) {
     let result = [];
+    for (let celsius of arrayOfNumbers) {
+        // Convert Celsius to Fahrenheit using the conversion formula
+        let fahrenheit = (celsius * 9/5) + 32;
+        
+        // Remove decimal figures using Math.trunc(...)
+        let truncatedFahrenheit = Math.trunc(fahrenheit);
+
+        result.push(truncatedFahrenheit);
+    }
 
     return result;
 }
 
-// assignment.celsiusToFahrenheit = celsiusToFahrenheit;
+let celsiusTemperatures = [20.5, 30.8, 15.2, 25.7];
+let fahrenheitTemperatures = celsiusToFahrenheit(celsiusTemperatures);
+console.log(fahrenheitTemperatures); 
+
+assignment.celsiusToFahrenheit = celsiusToFahrenheit;
 
 // ========================
 // DO NOT EDIT THIS BLOCK
